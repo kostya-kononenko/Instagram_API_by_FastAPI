@@ -9,5 +9,4 @@ class DBUser(Base):
     username = Column(String)
     email = Column(String)
     password = Column(String)
-    items = relationship("instagram.models.DBPost",
-                         back_populates="user")
+    items = relationship("instagram.models.DBPost", back_populates="user")
