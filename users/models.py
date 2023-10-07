@@ -4,8 +4,9 @@ from sqlalchemy.orm import relationship
 
 
 class DBUser(Base):
-    __tablename__ = "User"
+    __tablename__ = "user"
     id = Column(Integer, primary_key=True, index=True)
     username = Column(String)
     email = Column(String)
     password = Column(String)
+    items = relationship('instagram.models.DBPost', back_populates='user')

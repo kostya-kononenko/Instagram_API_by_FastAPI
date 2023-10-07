@@ -13,3 +13,10 @@ class UserDisplay(BaseModel):
 
     class Config:
         from_attributes = True
+
+
+class User(BaseModel):
+    username: str
+
+    class Config:
+        from_attributes = True
