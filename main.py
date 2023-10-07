@@ -4,6 +4,7 @@ from users import models as user_model
 from database.database import engine
 from users.routers import router as user_router
 from instagram.routers import router as instagram_router
+from fastapi.staticfiles import StaticFiles
 
 
 app = FastAPI()
@@ -19,3 +20,5 @@ async def root():
 
 instagram_model.Base.metadata.create_all(engine)
 user_model.Base.metadata.create_all(engine)
+
+app.mount('/images', StaticFiles(directory='images'), name='images')
