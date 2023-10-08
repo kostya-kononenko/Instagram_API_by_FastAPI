@@ -1,8 +1,9 @@
 from pydantic import BaseModel
 from datetime import datetime
-from typing import List
 
+from comments.schemas import Comment
 from users.schemas import User
+from typing import List
 
 
 class PostBase(BaseModel):
@@ -19,6 +20,7 @@ class PostDisplay(BaseModel):
     caption: str
     timestamp: datetime
     user: User
+    comments: List[Comment]
 
     class Config:
         from_attributes = True

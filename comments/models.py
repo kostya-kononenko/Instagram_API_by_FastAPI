@@ -4,12 +4,11 @@ from sqlalchemy.orm import relationship
 from sqlalchemy.sql.schema import ForeignKey
 
 
-class DBPost(Base):
-    __tablename__ = "post"
+class DBComment(Base):
+    __tablename__ = "comment"
     id = Column(Integer, primary_key=True, index=True)
-    image_url = Column(String)
-    image_url_type = Column(String)
-    caption = Column(String)
+    text = Column(String)
+    username = Column(String)
     timestamp = Column(DateTime)
-    user_id = Column(Integer, ForeignKey("user.id"))
-    user = relationship("users.models.DBUser", back_populates="items")
+    post_id = Column(Integer, ForeignKey("post.id"))
+    post = relationship("posts.models.DBPost", back_populates="comments")
